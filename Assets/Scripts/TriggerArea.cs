@@ -25,7 +25,7 @@ public class TriggerArea : MonoBehaviour
 	private void Update()
 	{
 		gameObjectsInTrigger.RemoveAll(item => (item == null) || (!item.activeSelf));
-		
+
 		// Debug.LogFormat("Count: {0}", gameObjectsInTrigger.Count);
 	}
 }
