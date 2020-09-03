@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -25,7 +24,6 @@ public class TriggerArea : MonoBehaviour
 	private void Update()
 	{
 		gameObjectsInTrigger.RemoveAll(item => (item == null) || (!item.activeSelf));
-
 		// Debug.LogFormat("Count: {0}", gameObjectsInTrigger.Count);
 	}
 }

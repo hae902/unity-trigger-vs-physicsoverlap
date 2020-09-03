@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicsArea : MonoBehaviour
@@ -7,16 +6,17 @@ public class PhysicsArea : MonoBehaviour
 	[SerializeField] private LayerMask layerMask = new LayerMask();
 	[SerializeField] private float radius = 0f;
 
-	private List<GameObject> gameObjectsInTrigger = new List<GameObject>();
+	private const int maxOverlapCollider = 64;
+	private Collider[] overlapColliders = new Collider[maxOverlapCollider];
+	private List<GameObject> gameObjectsInTrigger = new List<GameObject>(maxOverlapCollider);
 
 	private void Update()
 	{
 		gameObjectsInTrigger.Clear();
 
-		foreach (var collider in Physics.OverlapSphere(transform.position, radius, layerMask))
-		{
-			gameObjectsInTrigger.Add(collider.gameObject);
-		}
+		var overlap = Physics.OverlapSphereNonAlloc(transform.position, radius, overlapColliders, layerMask);
+		for (var i = 0; i < overlap; i++)
+			gameObjectsInTrigger.Add(overlapColliders[i].gameObject);
 		// Debug.LogFormat("Count: {0}", gameObjectsInTrigger.Count);
 	}
 
