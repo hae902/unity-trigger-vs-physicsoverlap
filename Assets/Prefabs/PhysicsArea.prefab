@@ -46,4 +46,4 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  radius: 1
+  radius: 2
