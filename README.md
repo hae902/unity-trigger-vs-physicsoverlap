@@ -1,0 +1,3 @@
+# unity-trigger-vs-physicsoverlap
+
+範囲内に存在しているオブジェクトを検出する処理において、TriggerとPhysics.OverlapSphereのどちらが少ない負荷で実行できるかを検証するためのリポジトリです。
